@@ -8,6 +8,34 @@
     <link rel="apple-touch-icon" href="https://i.ibb.co.com/8n2WR9r4/Kajian.png">
     <meta name="theme-color" content="#065f46">
     <script src="https://cdn.tailwindcss.com"></script>
+    
+<!-- Inisialisasi Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDGNwLkzw_pC9H_FB-EUCKXz1AICzGEpFU",
+            authDomain: "poster-kajian.firebaseapp.com",
+            projectId: "poster-kajian",
+            storageBucket: "poster-kajian.firebasestorage.app",
+            messagingSenderId: "504512576497",
+            appId: "1:504512576497:web:469871cafbc1e753822250",
+            measurementId: "G-CXH2KMSXPL"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        // Sign in secara anonim untuk akses database
+        signInAnonymously(auth).catch((error) => {
+            console.error("Gagal inisialisasi auth:", error);
+        });
+
+        window.db = db; // Membuat db bisa diakses di script global
+    </script>
+    
     <style>
         input[type="date"]:invalid::before { content: "Tanggal"; color: #94a3b8; }
         input[type="time"]:invalid::before { content: "Jam"; color: #94a3b8; }
