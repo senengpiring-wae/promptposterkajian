@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Prompt Poster Kajian</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="https://i.ibb.co.com/8n2WR9r4/Kajian.png">
+    <meta name="theme-color" content="#065f46">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        input[type="date"]:invalid::before { content: "Tanggal"; color: #94a3b8; }
+        input[type="time"]:invalid::before { content: "Jam"; color: #94a3b8; }
+        select:invalid { color: #94a3b8; }
+        option { color: black; }
+    </style>
+</head>
+<body class="bg-slate-50 p-4 md:p-10">
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg border border-slate-200">
+        <header class="mb-6 text-center">
+            <h1 class="text-2xl font-bold text-emerald-900">Generator Prompt Poster Kajian</h1>
+        </header>
+
+        <div class="space-y-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Rasio Poster -->
+            <div class="col-span-1 md:col-span-2">
+                <label class="block text-sm font-semibold mb-1">Rasio Poster:</label>
+                <select id="ratio" required class="w-full p-2 border rounded-lg col-span-1 md:col-span-2">
+                    <option value="" disabled selected>Pilih Rasio</option>                 
+                    <option value="--ar 3:4">3:4 (Social Media Feed)</option>
+                    <option value="--ar 4:5">4:5 (Instagram Portrait)</option>
+                    <option value="--ar 9:16">9:16 (Story/Reels)</option>
+                    <option value="--ar 1:1">1:1 (Square/Post)</option>
+                    <option value="--ar 16:9">16:9 (Banner/Cover)</option>
+                </select>
+            </div>
+            
+            <input type="text" id="tema" placeholder="Tema/Judul Kajian" class="p-2 border rounded-lg w-full col-span-1 md:col-span-2">
+            <input type="text" id="ustadz" placeholder="Nama Ustadz" class="p-2 border rounded-lg w-full col-span-1 md:col-span-2">
+            
+            <!-- Tanggal & Jam -->
+            <input type="date" id="tanggal" required class="p-2 border rounded-lg w-full">
+            <div class="flex gap-2">
+                <input type="time" id="jam" required class="p-2 border rounded-lg w-full">
+                <select id="zonaWaktu" class="p-2 border rounded-lg">
+                    <option value="WIB">WIB</option>
+                    <option value="WITA">WITA</option>
+                    <option value="WIT">WIT</option>
+                </select>
+            </div>
+
+            <!-- Tempat -->
+            <input type="text" id="tempat" placeholder="Tempat Kajian" class="p-2 border rounded-lg w-full col-span-1 md:col-span-2">
+
+            <!-- Peserta -->
+            <select id="peserta" required class="w-full p-2 border rounded-lg col-span-1 md:col-span-2">
+                <option value="" disabled selected>Pilih Kategori Peserta</option>
+                <option value="Umum">Umum</option>
+                <option value="Khusus Ikhwan">Khusus Ikhwan</option>
+                <option value="Khusus Akhwat">Khusus Akhwat</option>
+                <option value="Khusus Pengurus Masjid">Khusus Pengurus Masjid</option>
+                <option value="Khusus Anak">Khusus Anak</option>
+            </select>
+
+            <!-- Kontak & Donasi -->
+            <input type="text" id="contact" placeholder="Contact Person (WA)" class="p-2 border rounded-lg w-full">
+            <input type="text" id="donasi" placeholder="Info Donasi (No. Rek)" class="p-2 border rounded-lg w-full">
+
+            <!-- Sponsor -->
+            <div class="col-span-1 md:col-span-2 mt-2">
+                <label class="block text-sm font-semibold mb-2">Daftar Sponsor:</label>
+                <div class="grid grid-cols-2 gap-2">
+                    <input type="text" id="sponsor1" placeholder="Sponsor 1" class="p-2 border rounded-lg w-full">
+                    <input type="text" id="sponsor2" placeholder="Sponsor 2" class="p-2 border rounded-lg w-full">
+                    <input type="text" id="sponsor3" placeholder="Sponsor 3" class="p-2 border rounded-lg w-full">
+                    <input type="text" id="sponsor4" placeholder="Sponsor 4" class="p-2 border rounded-lg w-full">
+                </div>
+            </div>
+
+            <!-- Background -->
+            <div class="col-span-1 md:col-span-2">
+                <label class="block text-sm font-semibold mb-1">Background Template:</label>
+                <select id="bgTemplate" required class="w-full p-2 border rounded-lg col-span-1 md:col-span-2">
+                    <option value="" disabled selected>Pilih Background</option>
+                    <option value="custom image reference provided">Sesuai Gambar Referensi</option>
+                    <option value="minimalist mosque silhouette background">Masjid (Siluet Minimalis)</option>
+                    <option value="luxury islamic geometric pattern background with gold accents">Geometris Mewah (Emas)</option>
+                    <option value="elegant floral arabesque pattern in soft emerald">Floral Arabesque (Lembut)</option>
+                    <option value="abstract islamic calligraphy art with modern strokes">Abstrak Kaligrafi (Modern)</option>
+                    <option value="serene green garden atmosphere with soft bokeh light">Nuansa Taman (Hijau)</option>
+                    <option value="warm wooden texture with islamic pattern engraving">Kayu & Ukiran (Klasik)</option>
+                    <option value="dark navy background with glowing neon geometric lines">Neon Geometris (Futuristik)</option>
+                    <option value="soft marble texture with clean white and gold">Marmer & Emas (Eksklusif)</option>
+                    <option value="white clean minimal background with subtle grey border">Minimalis Putih</option>
+                    <option value="intricate Islamic geometric pattern with elegant gold details">Geometris Islami</option>
+                    <option value="aged parchment paper with vintage texture">Kertas Tua</option>
+                </select>
+            </div>
+
+            <div class="flex gap-2 col-span-1 md:col-span-2">
+                <button onclick="generatePrompt('text')" class="flex-1 bg-emerald-700 text-white py-3 rounded-xl font-bold hover:bg-emerald-800 transition">Generate Prompt</button>
+                <button onclick="generatePrompt('json')" class="flex-1 bg-slate-700 text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition">Generate JSON</button>
+            </div>
+
+            <div class="col-span-1 md:col-span-2 mt-4">
+                <textarea id="result" readonly class="w-full p-4 bg-slate-100 rounded-lg text-sm border font-mono" rows="8"></textarea>
+                <button onclick="copyToClipboard()" class="w-full mt-2 bg-emerald-100 text-emerald-800 py-2 rounded-lg font-bold hover:bg-emerald-200 transition">Salin ke Clipboard</button>
+            </div>
+        </div>
+        
+        <!-- Teks Copyright -->
+            <p class="text-center text-slate-400 text-xs mt-4 font-medium">©2026 Rindhida79</p>
+        </div>
+    </div>
+        
+    </div>
+
+    <script>
+        function generatePrompt(mode) {
+            const sponsors = [
+                document.getElementById('sponsor1').value,
+                document.getElementById('sponsor2').value,
+                document.getElementById('sponsor3').value,
+                document.getElementById('sponsor4').value
+            ].filter(s => s !== "");
+
+            const data = {
+                tema: document.getElementById('tema').value || "Tema Kajian",
+                ustadz: document.getElementById('ustadz').value || "Nama Ustadz",
+                tanggal: document.getElementById('tanggal').value || "Tanggal",
+                jam: (document.getElementById('jam').value || "Jam") + " " + document.getElementById('zonaWaktu').value,
+                tempat: document.getElementById('tempat').value || "Tempat",
+                peserta: document.getElementById('peserta').value || "Umum",
+                contact: document.getElementById('contact').value || "-",
+                donasi: document.getElementById('donasi').value || "-",
+                sponsors: sponsors,
+                bg: document.getElementById('bgTemplate').value,
+                ratio: document.getElementById('ratio').value
+            };
+
+            if (mode === 'json') {
+                document.getElementById('result').value = JSON.stringify(data, null, 4);
+            } else {
+                const sponsorText = data.sponsors.length > 0 ? data.sponsors.join(", ") : "-";
+                const prompt = Professional Islamic lecture poster background, ${data.bg}. Layout includes: Title: "${data.tema}", Speaker: "${data.ustadz}", Date: "${data.tanggal}", Time: "${data.jam}", Location: "${data.tempat}", Audience: "${data.peserta}". Bottom section contact: "${data.contact}", Donation: "${data.donasi}", and Sponsored by: "${sponsorText}". High resolution, elegant aesthetic, ${data.ratio};
+                document.getElementById('result').value = prompt;
+            }
+        }
+
+        function copyToClipboard() {
+            const res = document.getElementById("result");
+            res.select();
+            document.execCommand("copy");
+            alert("Berhasil disalin!");
+        }
+    </script>
+</body>
+</html>
