@@ -1,0 +1,21 @@
+{
+  "name": "Generator Poster Kajian",
+  "short_name": "Poster Kajian",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#065f46",
+  "icons": [
+    {
+      "src": "https://i.ibb.co.com/8n2WR9r4/Kajian.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://i.ibb.co.com/8n2WR9r4/Kajian.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+
